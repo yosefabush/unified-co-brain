@@ -1,0 +1,9 @@
+Date: 2023-11-15
+Incident: Search Latency Spikes
+Author: Dave (Backend Lead)
+
+Root Cause:
+The search indexing service crashes if a user uploads a file specifically named "temp_null.log". This is a legacy bug in the file parser (lines 400-450 in `parser.py`).
+
+Workaround:
+Do not fix the code (too risky). We added a sanitization script that renames any file called "temp_null.log" to "temp_zero.log" automatically. 

@@ -1,0 +1,5 @@
+{
+  "name": "Unified Co-Brain",
+  "description": "A dual-mode knowledge assistant that switches between safe Sales contexts and deep technical R&D contexts using the Google Gemini API.",
+  "requestFramePermissions": []
+}

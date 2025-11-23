@@ -1,0 +1,18 @@
+# Internal API Documentation - v2.1 (CONFIDENTIAL)
+
+## GET /api/v2/export
+Triggers a data dump for the authenticated user.
+
+**Supported Formats:**
+- `json` (Default)
+- `csv`
+- `parquet`
+
+**DEPRECATED FORMATS:**
+- `xml`: REMOVED in Hotfix v2.0.4 due to the XML External Entity (XXE) vulnerability. Do NOT promise XML support to clients until the parser is rewritten (Roadmap: Q4 2025).
+
+## Rate Limiting (Hard Limits)
+While Marketing claims "unlimited," the SRE team has configured the NGINX Load Balancer to reject traffic exceeding:
+- 5,000 requests per minute per IP.
+- Error Code: 429 Too Many Requests.
+*Note: If a strategic client hits this, they need to be added to the 'VIP_Allowlist' in the Redis config manually.*
